@@ -1,16 +1,15 @@
 from dash import html, dcc, Dash
-
 import pandas as pd
 import plotly.graph_objs as go
-from dash import html
+import numpy as np
+import os
+
+# Initialize the Dash app
 app = Dash(__name__)
 
-import numpy as np
-import pandas as pd
-
 # Constants
-A = 1  # Amplitude, you can change this value
-w = 2 * np.pi  # Frequency (angular velocity), you can adjust this too
+A = 1  # Amplitude
+w = 2 * np.pi  # Frequency (angular velocity)
 
 # Time values (from 0 to 1 with 0.01 intervals)
 t = np.arange(0, 1.01, 0.01)
@@ -24,12 +23,14 @@ df = pd.DataFrame({
     'Asin(wt)': func_values
 })
 
-# Save to CSV file
-df.to_csv(r'C:\Users\22ary\Downloads\me f376 dop\data21.csv', index=False)
+# Define file path for CSV (use relative paths to avoid issues on different environments)
+csv_file_path = os.path.join(os.getcwd(), 'data21.csv')
 
+# Save the DataFrame to a CSV file
+df.to_csv(csv_file_path, index=False)
 
 # Load the generated CSV file
-df = pd.read_csv(r'C:\Users\22ary\Downloads\me f376 dop\data21.csv')
+df = pd.read_csv(csv_file_path)
 
 # Create the graph layout
 app.layout = html.Div([
