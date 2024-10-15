@@ -51,6 +51,11 @@ app.layout = html.Div([
     )
 ])
 
-# Run the Dash app
+# Flask route to serve the Dash app
+@application.route('/')
+def render_dashboard():
+    return app.index()
+
+# Run Flask server (no need for app.run_server)
 if __name__ == '__main__':
-    app.run_server(debug=True, port=8082)
+    application.run(debug=True)
