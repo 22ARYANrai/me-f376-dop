@@ -9,7 +9,7 @@ import os
 app = Dash(__name__)
 
 # Constants
-A = 2 # Amplitude
+A = 4 # Amplitude
 w = 2 * np.pi  # Frequency (angular velocity)
 
 # Time values (from 0 to 1 with 0.01 intervals)
