@@ -10,7 +10,7 @@ application = Flask(__name__)
 app = Dash(__name__, server=application, url_base_pathname='/')
 
 # Constants
-A = 1  # Amplitude
+A = 4  # Amplitude
 w = 2 * np.pi  # Frequency (angular velocity)
 
 # Time values (from 0 to 1 with 0.01 intervals)
